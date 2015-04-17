@@ -39,7 +39,8 @@
   "Execute FORMS with completion headlong."
   `(if (window-minibuffer-p)
        (user-error "Already in minibuffer")
-     (let ((minibuffer-local-must-match-map headlong-minibuffer-map))
+     (let ((minibuffer-local-must-match-map headlong-minibuffer-map)
+           (completing-read-function 'completing-read-default))
        ,@forms)))
 
 (defvar headlong-minibuffer-map
